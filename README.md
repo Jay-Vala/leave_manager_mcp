@@ -136,48 +136,6 @@ The server provides detailed error responses for common scenarios:
 }
 ```
 
-## Database Schema
-
-The server expects the following database tables:
-
-### employees
-```sql
-CREATE TABLE employees (
-  id VARCHAR(10) PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  department VARCHAR(50),
-  leave_balance INTEGER DEFAULT 25
-);
-```
-
-### leave_applications
-```sql
-CREATE TABLE leave_applications (
-  id SERIAL PRIMARY KEY,
-  employee_id VARCHAR(10) REFERENCES employees(id),
-  leave_date DATE NOT NULL,
-  status VARCHAR(20) DEFAULT 'approved',
-  applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-## Development
-
-### Running Tests
-```bash
-npm test
-```
-
-### Running in Development Mode
-```bash
-npm run dev
-```
-
-### Linting
-```bash
-npm run lint
-```
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -194,4 +152,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Note**: This is an MCP (Model Context Protocol) server designed to work with AI assistants and automation tools. For direct API usage, refer to the examples above.
+**Note**: This is an MCP (Model Context Protocol) server designed to work with AI assistants and automation tools.
